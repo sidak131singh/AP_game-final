@@ -5,7 +5,9 @@ public class Fall {
     private Stick stick;
 private Poll poll;
 
-   public void fall(){}
+   public void fall(){
+       System.out.println(" hi ");
+   }
 
 
 
