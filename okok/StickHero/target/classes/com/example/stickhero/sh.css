@@ -1,0 +1,43 @@
+#text{
+    -fx-font-size:10;
+    -fx-font-family:"Georgia";
+    -fx-text-fill: "black"
+}
+#logintext{
+    -fx-font-size:70;
+    -fx-font-family:"Arial Black";
+    -fx-text-fill: "black"
+
+}
+#playbutton{
+    -fx-font-size:30;
+    -fx-font-family:"Impact";
+    -fx-text-fill: "white"
+}
+#ONE{
+    -fx-font-size:20;
+    -fx-font-family:"Impact";
+    -fx-text-fill: "black"
+
+}
+#gameover{
+    -fx-font-size:60;
+    -fx-font-family:"Arial Black";
+    -fx-text-fill: "black"
+
+}
+#RESTART{
+    -fx-font-size:20;
+    -fx-font-family:"Impact";
+    -fx-text-fill: "black"
+
+}
+.button{
+    -fx-background-color: "red";
+    -fx-border-style: "circle";
+    -fx-font-family: "Impact" ;
+}
+
+
+
+
