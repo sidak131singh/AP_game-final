@@ -58,10 +58,19 @@ public class Hero extends coordinates{
         this.cherries = cherries;
     }
 
-    public void flip(){
 
-     }
-
+    private boolean isFlipped = false;
+    public void flip(ImageView hero) {
+        double centerY = hero.getLayoutY() + hero.getBoundsInLocal().getHeight() / 2;
+        if (!isFlipped) {
+            hero.setScaleY(-1); // Flip vertically
+            hero.setLayoutY(centerY - (hero.getBoundsInLocal().getHeight() / 2));
+        } else {
+            hero.setScaleY(1); // Revert to normal
+            hero.setLayoutY(centerY + (hero.getBoundsInLocal().getHeight() / 2));
+        }
+        isFlipped = !isFlipped;
+    }
 
 
 

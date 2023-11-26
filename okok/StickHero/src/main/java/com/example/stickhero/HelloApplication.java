@@ -60,6 +60,9 @@ public class HelloApplication extends Application {
                 if (event.getCode() == KeyCode.U) {
                     mainScreenController.onKeyPressed(event);
                 }
+                else if (event.getCode() == KeyCode.F) {
+                    mainScreenController.onKeyPressed(event);
+                }
             });
 
             mainScreenScene.setOnKeyReleased(event -> {

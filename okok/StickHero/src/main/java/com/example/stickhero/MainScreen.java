@@ -39,6 +39,10 @@ Hero herox = new Hero(hero);
             System.out.println("grow");
             stickx.startGrowing(stick);
         }
+        else if(event.getCode()==KeyCode.F){
+            System.out.println("flip");
+            herox.flip(hero);
+        }
     }
 
     @FXML
