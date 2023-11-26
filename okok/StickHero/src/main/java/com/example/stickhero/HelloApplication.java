@@ -19,7 +19,7 @@ import javafx.util.Duration;
 import java.io.IOException;
 import java.util.Objects;
 
-
+//abcd
 public class HelloApplication extends Application {
 
     @Override
@@ -28,7 +28,7 @@ public class HelloApplication extends Application {
             FXMLLoader fxmlLoader = new FXMLLoader(HelloApplication.class.getResource("LoginScreen.fxml"));
             Parent root = fxmlLoader.load();
             Scene scene = new Scene(root);
-            stage.setMaximized(true);
+           // stage.setMaximized(true);
             stage.setTitle("Welcome");
             stage.setScene(scene);
             scene.getStylesheets().add(Objects.requireNonNull(getClass().getResource("sh.css")).toExternalForm());
@@ -54,11 +54,23 @@ public class HelloApplication extends Application {
             Scene mainScreenScene = new Scene(root);
 
 
-            // Retrieve the controller for the MainScreens
+            // Retrieve the controller for the MainScreen
             MainScreen mainScreenController = fxmlLoader.getController();
+            mainScreenScene.setOnKeyPressed(event -> {
+                if (event.getCode() == KeyCode.U) {
+                    mainScreenController.onKeyPressed(event);
+                }
+            });
+
+            mainScreenScene.setOnKeyReleased(event -> {
+                if (event.getCode() == KeyCode.U) {
+                    mainScreenController.onKeyReleased(event);
+                }
+            });
+
 
             // Set the event handler for scene click
-            mainScreenScene.setOnMouseClicked(event -> mainScreenController.startGrowing());
+
 
             // Set the scene for the mainScreenStage
             Stage mainScreenStage = new Stage();
@@ -79,3 +91,8 @@ public class HelloApplication extends Application {
         launch();
     }
 }
+
+
+
+
+

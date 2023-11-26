@@ -27,6 +27,6 @@
       </ImageView>
       <Label fx:id="logintext" graphicTextGap="6.0" layoutX="168.0" layoutY="61.0" text="STICK  HERO" textAlignment="CENTER" />
       <Circle fill="#fd0c0c" layoutX="423.0" layoutY="275.0" radius="62.0" stroke="BLACK" strokeType="INSIDE" />
-      <Button fx:id="button" layoutX="404.0" layoutY="250.0" mnemonicParsing="false" onAction="#onSwitch2Click" text="Play" textAlignment="CENTER" />
+      <Button fx:id="button" layoutX="374.0" layoutY="241.0" mnemonicParsing="false" onAction="#onSwitch2Click" prefHeight="59.0" prefWidth="95.0" text="Play" textAlignment="CENTER" />
    </children>
 </AnchorPane>

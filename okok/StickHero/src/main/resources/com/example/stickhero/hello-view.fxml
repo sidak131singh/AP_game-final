@@ -4,12 +4,11 @@
 <?import javafx.scene.image.Image?>
 <?import javafx.scene.image.ImageView?>
 <?import javafx.scene.layout.AnchorPane?>
-<?import javafx.scene.shape.Line?>
 <?import javafx.scene.shape.Rectangle?>
 
 <AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/21" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.stickhero.MainScreen">
    <children>
-      <ImageView fx:id="bg1" fitHeight="302.0" fitWidth="657.0" layoutX="-3.0" layoutY="49.0" onMousePressed="#startGrowing" onMouseReleased="#startFalling" pickOnBounds="true" preserveRatio="true" scaleY="1.4">
+      <ImageView fx:id="bg1" fitHeight="302.0" fitWidth="657.0" layoutX="-3.0" layoutY="49.0" pickOnBounds="true" preserveRatio="true" scaleY="1.4">
          <image>
             <Image url="@farmbg.jpg" />
          </image>
@@ -27,13 +26,13 @@
             <Image url="@cherry.png.png" />
          </image>
       </ImageView>
-      <ImageView fx:id="hero" fitHeight="44.0" fitWidth="80.0" layoutX="64.0" layoutY="157.0" pickOnBounds="true" preserveRatio="true">
+      <ImageView fx:id="hero" fitHeight="44.0" fitWidth="80.0" layoutX="79.0" layoutY="156.0" pickOnBounds="true" preserveRatio="true">
          <image>
             <Image url="@char.png" />
          </image>
       </ImageView>
       <Label layoutX="542.0" layoutY="17.0" text="0" />
       <Rectangle arcHeight="5.0" arcWidth="5.0" fill="#e21515" height="10.0" layoutX="372.0" layoutY="209.0" stroke="BLACK" strokeType="INSIDE" width="16.0" />
-      <Line fx:id="stickRect" endX="-100.0" endY="60.600006103515625" layoutX="219.0" layoutY="127.0" scaleX="8.0" startX="-99.98621368408203" startY="74.0" />
+      <Rectangle fx:id="stick" arcHeight="5.0" arcWidth="5.0" fill="#151717" height="37.0" layoutX="119.0" layoutY="182.0" onKeyPressed="#onKeyPressed" onKeyReleased="#onKeyReleased" stroke="BLACK" strokeType="INSIDE" width="7.0" />
    </children>
 </AnchorPane>

@@ -30,7 +30,7 @@ public class LoginScreen implements Screen{
             scene.getStylesheets().add(Objects.requireNonNull(getClass().getResource("sh.css")).toExternalForm());
 
             //stage.setMaximized(true);
-        stage.setFullScreen(true);
+        //stage.setFullScreen(true);
             stage.setScene(scene);
             return stage;
 
