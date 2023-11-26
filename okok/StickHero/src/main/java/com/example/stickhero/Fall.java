@@ -7,6 +7,7 @@ private Poll poll;
 
    public void fall(){
        System.out.println(" hi ");
+       System.out.println(" hello ");
    }
 
 
