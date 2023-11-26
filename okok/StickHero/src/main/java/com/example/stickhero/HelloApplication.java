@@ -8,6 +8,7 @@ import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
+import javafx.scene.control.Button;
 import javafx.scene.input.KeyCode;
 import javafx.scene.input.KeyEvent;
 import javafx.scene.layout.Pane;
@@ -19,58 +20,62 @@ import java.io.IOException;
 import java.util.Objects;
 
 
-    public class HelloApplication extends Application {
+public class HelloApplication extends Application {
 
-
-        @Override
-        public void start(Stage stage) throws IOException {
-
-            FXMLLoader fxmlLoader = new FXMLLoader(HelloApplication.class.getResource("hello-view.fxml"));
+    @Override
+    public void start(Stage stage) {
+        try {
+            FXMLLoader fxmlLoader = new FXMLLoader(HelloApplication.class.getResource("LoginScreen.fxml"));
             Parent root = fxmlLoader.load();
-            Scene scene = new Scene(root, 320, 240);
+            Scene scene = new Scene(root);
+            stage.setMaximized(true);
             stage.setTitle("Welcome");
             stage.setScene(scene);
             scene.getStylesheets().add(Objects.requireNonNull(getClass().getResource("sh.css")).toExternalForm());
-            LoginScreen lg = new LoginScreen();
-            MainScreen m = fxmlLoader.getController();
-            stage.getScene().setOnKeyPressed((m::onKeyPressed));
-            stage.getScene().setOnKeyReleased((m::onKeyReleased));
-            stage = lg.display();
 
-//
-//
-//            Stage loginStage = lg.display();
-//          loginStage.show();
+            LoginScreen loginController = fxmlLoader.getController();
 
-            // Show the MainScreen stage
-            stage.show();
+            Button switchButton = (Button) root.lookup("#button");
+            switchButton.setOnAction(event -> {
+                stage.hide(); // Hide the login stage
+                showMainScreen(scene); // Pass the scene to the method
+            });
+
+            stage.show(); // Show the primary stage
+        } catch (IOException e) {
+            e.printStackTrace();
         }
+    }
 
-        public static void main(String[] args) {
-            launch();
+    private void showMainScreen(Scene previousScene) {
+        try {
+            FXMLLoader fxmlLoader = new FXMLLoader(HelloApplication.class.getResource("hello-view.fxml"));
+            Parent root = fxmlLoader.load();
+            Scene mainScreenScene = new Scene(root);
+
+
+            // Retrieve the controller for the MainScreens
+            MainScreen mainScreenController = fxmlLoader.getController();
+
+            // Set the event handler for scene click
+            mainScreenScene.setOnMouseClicked(event -> mainScreenController.startGrowing());
+
+            // Set the scene for the mainScreenStage
+            Stage mainScreenStage = new Stage();
+            mainScreenStage.setScene(mainScreenScene);
+            mainScreenStage.setTitle("Main Screen");
+
+            // Close the previous scene (login screen)
+            Stage loginStage = (Stage) previousScene.getWindow();
+            loginStage.close();
+
+            mainScreenStage.show();
+        } catch (IOException e) {
+            e.printStackTrace();
         }
+    }
 
-        public void showMainScreen() {
-            try {
-                FXMLLoader fxmlLoader = new FXMLLoader(HelloApplication.class.getResource("hello-view.fxml"));
-                Parent root = fxmlLoader.load();
-                Scene mainScreenScene = new Scene(root, 320, 240);
-                Stage mainScreenStage = new Stage();
-                mainScreenStage.setScene(mainScreenScene);
-                mainScreenStage.setTitle("Main Screen");
-
-                MainScreen m = fxmlLoader.getController();
-                mainScreenScene.setOnKeyPressed((m::onKeyPressed));
-                mainScreenScene.setOnKeyReleased((m::onKeyReleased));
-
-                mainScreenStage.show();
-            } catch (IOException e) {
-                e.printStackTrace();
-            }
-        }
-
-
-        }
-
-
-
+    public static void main(String[] args) {
+        launch();
+    }
+}
