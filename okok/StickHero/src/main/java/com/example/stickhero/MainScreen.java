@@ -27,6 +27,8 @@ public class MainScreen implements Screen {
        Stick stickx = new Stick(stick);
 @FXML
 private ImageView hero;
+@FXML
+        private Rectangle pillar;
 Hero herox = new Hero(hero);
     private double initialHeight;
     private boolean isGrowing = false;
@@ -55,6 +57,28 @@ Hero herox = new Hero(hero);
 
             herox.Move(stick.getHeight(),hero);
 
+
+            double heroX = hero.getLayoutX() + stick.getHeight();
+            double poleX = pillar.getLayoutX();
+            System.out.println(heroX);
+            System.out.println(poleX);
+            System.out.println(Math.abs(heroX - poleX));
+
+            // Adjust the threshold as needed based on your game's logic
+            double threshold = 68.0; // Example threshold, adjust as per your game
+            double time = stick.getHeight()/herox.getSpeed();
+            // Check if the hero is within a certain distance (threshold) of the pole
+            if (Math.abs(heroX - poleX)>= threshold ) {
+                System.out.println("hiiii");
+
+                // Create a Timeline to delay the startFalling call
+                Timeline timeline = new Timeline(new KeyFrame(Duration.seconds(time), evt -> {
+                    // Initiate the falling action after a delay (adjust the duration as needed)
+                    herox.startFalling(hero); // Adjust the method name based on your implementation
+                }));
+
+                timeline.play();
+            }
 
         }
     }

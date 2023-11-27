@@ -14,7 +14,7 @@
          </image>
       </ImageView>
       <Rectangle arcHeight="5.0" arcWidth="5.0" fill="#030303" height="211.0" layoutY="200.0" stroke="BLACK" strokeType="INSIDE" width="128.0" />
-      <Rectangle arcHeight="5.0" arcWidth="5.0" height="211.0" layoutX="323.0" layoutY="200.0" stroke="BLACK" strokeType="INSIDE" width="113.0" />
+      <Rectangle fx:id="pillar" arcHeight="5.0" arcWidth="5.0" height="211.0" layoutX="323.0" layoutY="200.0" stroke="BLACK" strokeType="INSIDE" width="113.0" />
       <Label fx:id="text" alignment="TOP_CENTER" layoutX="178.0" layoutY="65.0" text="Hold your finger on screen to stretch out the stick" />
       <ImageView fx:id="cherrytop" fitHeight="22.0" fitWidth="22.0" layoutX="564.0" layoutY="14.0" pickOnBounds="true" preserveRatio="true">
          <image>
