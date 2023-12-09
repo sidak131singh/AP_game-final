@@ -1,49 +1,50 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
+<?import javafx.scene.control.Button?>
 <?import javafx.scene.control.Label?>
 <?import javafx.scene.image.Image?>
 <?import javafx.scene.image.ImageView?>
 <?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.shape.Rectangle?>
 
-
-<AnchorPane prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/21" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.stickhero.GameOverScreen">
+<AnchorPane prefHeight="401.0" prefWidth="703.0" xmlns="http://javafx.com/javafx/21" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.stickhero.GameOverScreen">
    <children>
-      <AnchorPane layoutX="-5.0" layoutY="-1.0" prefHeight="400.0" prefWidth="611.0">
+      <AnchorPane layoutY="23.0" prefHeight="402.0" prefWidth="650.0">
          <children>
-            <ImageView fitHeight="406.0" fitWidth="807.0" layoutX="5.0" pickOnBounds="true" preserveRatio="true">
+            <ImageView fitHeight="371.0" fitWidth="716.0" layoutY="-9.0" pickOnBounds="true" preserveRatio="true" scaleY="1.25">
                <image>
-                  <Image url="@background1.jpg" />
+                  <Image url="@farmbg.jpg" />
                </image>
             </ImageView>
-            <Label fx:id="gameover" layoutX="213.0" layoutY="53.0" text="GAME  OVER" textAlignment="CENTER" />
-            <ImageView fitHeight="150.0" fitWidth="200.0" layoutX="306.0" layoutY="154.0" pickOnBounds="true" preserveRatio="true">
-               <image>
-                  <Image url="@score.jpg" />
-               </image>
-            </ImageView>
-            <ImageView fitHeight="59.0" fitWidth="52.0" layoutX="257.0" layoutY="312.0" pickOnBounds="true" preserveRatio="true">
+            <Label fx:id="gameover" layoutX="142.0" layoutY="37.0" text="GAME  OVER" textAlignment="CENTER" />
+            <ImageView fitHeight="59.0" fitWidth="52.0" layoutX="186.0" layoutY="304.0" pickOnBounds="true" preserveRatio="true">
                <image>
                   <Image url="@restsrt.png" />
                </image>
             </ImageView>
-            <ImageView fitHeight="101.0" fitWidth="32.0" layoutX="766.0" layoutY="21.0" pickOnBounds="true" preserveRatio="true">
+            <ImageView fitHeight="101.0" fitWidth="32.0" layoutX="305.0" layoutY="113.0" pickOnBounds="true" preserveRatio="true">
                <image>
-                  <Image url="@cherry.png.png" />
+                  <Image url="@cherry.png" />
                </image>
             </ImageView>
-            <Label layoutX="750.0" layoutY="29.0" text="05" />
-            <ImageView fitHeight="74.0" fitWidth="58.0" layoutX="490.0" layoutY="306.0" pickOnBounds="true" preserveRatio="true">
+            <ImageView fitHeight="65.0" fitWidth="84.0" layoutX="369.0" layoutY="304.0" pickOnBounds="true" preserveRatio="true">
                <image>
                   <Image url="@cont.png" />
                </image>
             </ImageView>
-            <ImageView fitHeight="43.0" fitWidth="38.0" layoutX="608.0" layoutY="314.0" pickOnBounds="true" preserveRatio="true">
+            <ImageView fitHeight="43.0" fitWidth="38.0" layoutX="478.0" layoutY="320.0" pickOnBounds="true" preserveRatio="true">
                <image>
-                  <Image url="@cherry.png.png" />
+                  <Image url="@cherry.png" />
                </image>
             </ImageView>
-            <Label fx:id="RESTART" layoutX="347.0" layoutY="330.0" text="RESTART" />
-            <Label fx:id="ONE" layoutX="557.0" layoutY="330.0" text="X 1 " />
+            <Label fx:id="RESTART" layoutX="247.0" layoutY="321.0" text="RESTART" />
+            <Label fx:id="ONE" layoutX="447.0" layoutY="330.0" text="X 1 " />
+            <Rectangle arcHeight="5.0" arcWidth="5.0" fill="WHITE" height="126.0" layoutX="249.0" layoutY="156.0" stroke="BLACK" strokeType="INSIDE" width="195.0" />
+            <Label fx:id="yourscoretxt" alignment="CENTER" contentDisplay="CENTER" layoutX="317.0" layoutY="175.0" scaleX="3.0" scaleY="3.0" text="Your Score" />
+            <Label fx:id="gmscore" layoutX="343.0" layoutY="226.0" scaleX="3.0" scaleY="3.0" text="0" />
+            <Button layoutX="186.0" layoutY="307.0" mnemonicParsing="false" onAction="#restart" opacity="0.0" scaleX="3.0" scaleY="3.0" text="Button" />
+            <Label fx:id="gmcherry" layoutX="390.0" layoutY="121.0" prefHeight="17.0" prefWidth="32.0" scaleX="3.0" scaleY="3.0" text="0" />
+            <Button layoutX="336.0" layoutY="292.0" mnemonicParsing="false" onAction="#revive" opacity="0.0" prefHeight="89.0" prefWidth="132.0" text="Button" />
          </children>
       </AnchorPane>
    </children>

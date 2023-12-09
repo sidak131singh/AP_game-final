@@ -12,7 +12,9 @@ public class Stick extends coordinates {
     public Stick(Rectangle stick) {
         this.stick = stick;
     }
-
+    public Rectangle getStick() {
+        return stick;
+    }
     @FXML
     private Rectangle stick;
     private boolean isGrowing = false;
@@ -32,17 +34,17 @@ public class Stick extends coordinates {
         this.x_coord = x_coord;
     }
 
-    public int getY_coord() {
+    public double getY_coord() {
         return y_coord;
     }
 
-    public void setY_coord(int y_coord) {
+    public void setY_coord(double y_coord) {
         this.y_coord = y_coord;
     }
 
     private int length;
     private int x_coord;
-    private  int y_coord;
+    private  double y_coord;
     private int difference;
 
     public int getDifference() {
@@ -66,7 +68,7 @@ public class Stick extends coordinates {
         );
 
         timeline.setOnFinished(event -> {
-            System.out.println("Fall animation finished!");
+            //System.out.println("Fall animation finished!");
             isGrowing = false;
         });
 

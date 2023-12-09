@@ -11,13 +11,13 @@ public class Hero extends coordinates {
     @FXML
     private Rectangle pillar;
     @FXML
-    private ImageView hero;
+    static ImageView hero;
 
     public Hero(ImageView hero) {
         this.hero = hero;
     }
 
-    private double speed = 45.0;
+    private double speed = 85.0;
 
     public double getSpeed() {
         return speed;
@@ -28,7 +28,7 @@ public class Hero extends coordinates {
     }
 
     private int x_coord;
-    private int y_coord;
+    private double y_coord;
     private cherry cherries;
 
     public void Move(double stickLength, ImageView hero) {
@@ -56,11 +56,11 @@ public class Hero extends coordinates {
         this.x_coord = x_coord;
     }
 
-    public int getY_coord() {
+    public double getY_coord() {
         return y_coord;
     }
 
-    public void setY_coord(int y_coord) {
+    public void setY_coord(double y_coord) {
         this.y_coord = y_coord;
     }
 
@@ -75,16 +75,18 @@ public class Hero extends coordinates {
 
     private boolean isFlipped = false;
 
-    public void flip(ImageView hero) {
+    public boolean flip(ImageView hero) {
         double centerY = hero.getLayoutY() + hero.getBoundsInLocal().getHeight() / 2;
+
         if (!isFlipped) {
             hero.setScaleY(-1); // Flip vertically
-            hero.setLayoutY(centerY - (hero.getBoundsInLocal().getHeight() / 2));
+            hero.setLayoutY(centerY + (hero.getBoundsInLocal().getHeight() / 2) - 7.0);
         } else {
             hero.setScaleY(1); // Revert to normal
-            hero.setLayoutY(centerY + (hero.getBoundsInLocal().getHeight() / 2));
+            hero.setLayoutY(centerY - (hero.getBoundsInLocal().getHeight() / 2) -37.0 );
         }
         isFlipped = !isFlipped;
+        return false;
     }
 
     public void startFalling(ImageView hero) {
@@ -120,4 +122,4 @@ public class Hero extends coordinates {
 //        }
 
 
-    }
+}

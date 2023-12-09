@@ -11,9 +11,9 @@ public abstract class coordinates {
     public abstract void setX_coord(int x_coord) ;
 
 
-    public abstract int getY_coord();
+    public abstract double getY_coord();
 
 
-    public abstract void setY_coord(int y_coord) ;
+    public abstract void setY_coord(double y_coord) ;
 
 }

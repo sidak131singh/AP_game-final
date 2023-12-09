@@ -1,42 +1,49 @@
 package com.example.stickhero;
 
-public class cherry extends coordinates {
-    private int count;
-    private int x_coord;
-    private int y_coord;
+import com.example.stickhero.Hero;
+import javafx.animation.KeyFrame;
+import javafx.animation.Timeline;
+import javafx.geometry.Bounds;
+import javafx.scene.image.ImageView;
+import javafx.util.Duration;
 
-    public int getCount() {
-        return count;
+public class cherry {
+    private ImageView imageView;
+    private boolean collision;
+
+    public cherry(ImageView imageView) {
+        this.imageView = imageView;
+        this.collision = false;
     }
 
-    public void setCount(int count) {
-        this.count = count;
+    public boolean isCollision() {
+        return collision;
     }
 
-    public int getX_coord() {
-        return x_coord;
+    public void hideCherry() {
+        imageView.setVisible(false);
     }
 
-    public void setX_coord(int x_Coord) {
-        this.x_coord = x_Coord;
+    public void showCherry() {
+        imageView.setVisible(true);
     }
 
-    @Override
-    public int getY_coord() {
-        return y_coord;
+    public void startCollisionCheck(Hero hero) {
+        Timeline cherryCheck = new Timeline(
+                new KeyFrame(Duration.ZERO, e -> checkCherryCollision(hero)),
+                new KeyFrame(Duration.seconds(0.1)) // Adjust the duration as needed
+        );
+        cherryCheck.setCycleCount(Timeline.INDEFINITE); // Run indefinitely
+        cherryCheck.play();
     }
 
-    @Override
-    public void setY_coord(int y_coord) {
-        this.y_coord = y_coord;
+    public void checkCherryCollision(Hero hero) {
+        Bounds heroBounds = Hero.hero.getBoundsInParent();
+        Bounds cherryBounds = imageView.getBoundsInParent();
 
-    }
-
-
-    public void updateCount(){
-
-    }
-    public void generateCherry(){
-
+        if (heroBounds.intersects(cherryBounds)) {
+            collision = true;
+            hideCherry();
+        }
     }
 }

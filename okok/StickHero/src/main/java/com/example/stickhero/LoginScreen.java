@@ -17,8 +17,9 @@ public class LoginScreen implements Screen{
 
 
     public void Start() {
-
-    }
+        MainScreen mainScreen = new MainScreen();
+        mainScreen.displayScore();
+}
     public Stage display() throws IOException {
 
             Stage stage = new Stage();

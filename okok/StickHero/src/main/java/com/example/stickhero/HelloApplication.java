@@ -13,13 +13,12 @@ import javafx.scene.input.KeyCode;
 import javafx.scene.input.KeyEvent;
 import javafx.scene.layout.Pane;
 import javafx.scene.shape.Line;
+import javafx.scene.shape.Rectangle;
 import javafx.stage.Stage;
 import javafx.util.Duration;
 
 import java.io.IOException;
 import java.util.Objects;
-
-//hihowru
 public class HelloApplication extends Application {
 
     @Override
@@ -28,26 +27,28 @@ public class HelloApplication extends Application {
             FXMLLoader fxmlLoader = new FXMLLoader(HelloApplication.class.getResource("LoginScreen.fxml"));
             Parent root = fxmlLoader.load();
             Scene scene = new Scene(root);
-           // stage.setMaximized(true);
+            // stage.setMaximized(true);
             stage.setTitle("Welcome");
             stage.setScene(scene);
             scene.getStylesheets().add(Objects.requireNonNull(getClass().getResource("sh.css")).toExternalForm());
 
-            LoginScreen loginController = fxmlLoader.getController();
-
+           // LoginScreen loginController = fxmlLoader.getController();
+            LoginScreen loginController = new LoginScreen();
+//            loginController.Start();
             Button switchButton = (Button) root.lookup("#button");
             switchButton.setOnAction(event -> {
-                stage.hide(); // Hide the login stage
-                showMainScreen(scene); // Pass the scene to the method
+                stage.hide();
+                showMainScreen(scene);
             });
 
-            stage.show(); // Show the primary stage
+            stage.show();
         } catch (IOException e) {
             e.printStackTrace();
         }
     }
 
     private void showMainScreen(Scene previousScene) {
+
         try {
             FXMLLoader fxmlLoader = new FXMLLoader(HelloApplication.class.getResource("hello-view.fxml"));
             Parent root = fxmlLoader.load();
@@ -56,6 +57,10 @@ public class HelloApplication extends Application {
 
             // Retrieve the controller for the MainScreen
             MainScreen mainScreenController = fxmlLoader.getController();
+            mainScreenController.manageCherries();
+            mainScreenController.generatePillars();
+
+            mainScreenController.stick.setTranslateX(mainScreenController.rectangles[0].getX() );
             mainScreenScene.setOnKeyPressed(event -> {
                 if (event.getCode() == KeyCode.U) {
                     mainScreenController.onKeyPressed(event);
@@ -71,16 +76,11 @@ public class HelloApplication extends Application {
                 }
             });
 
-
-            // Set the event handler for scene click
-
-
-            // Set the scene for the mainScreenStage
             Stage mainScreenStage = new Stage();
             mainScreenStage.setScene(mainScreenScene);
             mainScreenStage.setTitle("Main Screen");
 
-            // Close the previous scene (login screen)
+
             Stage loginStage = (Stage) previousScene.getWindow();
             loginStage.close();
 

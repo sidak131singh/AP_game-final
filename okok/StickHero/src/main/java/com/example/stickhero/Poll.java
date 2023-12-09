@@ -3,13 +3,36 @@ package com.example.stickhero;
 import javafx.fxml.FXML;
 import javafx.scene.shape.Rectangle;
 
-public class Poll {
-@FXML
-private Rectangle pillar;
+public class Poll  {
+    @FXML
+    private Rectangle poll;
+    // other fields and methods...
 
-    public Poll(Rectangle pillar) {
-        this.pillar = pillar;
+    public Poll(Rectangle pole) {
+        poll = pole;
     }
+    private double x= poll.getX();
+    private double y;
+
+
+
+    public double getX() {
+        return poll.getX();
+    }
+
+    public void setX(double x) {
+        this.x = x;
+    }
+
+    public double getY() {
+        return y;
+    }
+
+    public void setY(double y) {
+        this.y = y;
+    }
+
+
 
     private int width;
     private int distance;
