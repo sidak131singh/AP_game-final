@@ -1,3 +1,8 @@
+contributors :
+1)SNEHA NAGPAL 2022502
+2)SIDAK SINGH CHAHAL 2022495
+GROUP NUMBER :64
+
 ABOUT THE GAME :
 This game is an adaptation of the Stick
 Hero mobile game, where the player needs 
